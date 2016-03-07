@@ -36,7 +36,9 @@ function clbk( error, results ) {
 	}
 	console.dir( results );
 	/* returns
-		// TODO
+		{
+			"result": true
+		}
 	*/
 }
 ```

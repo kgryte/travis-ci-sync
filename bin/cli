@@ -98,12 +98,11 @@ sync( opts, clbk );
 * @param {Object} results - response data
 * @returns {Void}
 */
-function clbk( error, results ) {
+function clbk( error ) {
 	if ( error ) {
 		process.stderr.write( error.message+'\n', 'utf8' );
 		return process.exit( 1 );
 	}
-	// TODO
-	process.stdout.write( JSON.stringify( results )+'\n', 'utf8' );
+	process.stdout.write( 'Success\n', 'utf8' );
 	process.exit( 0 );
 }
