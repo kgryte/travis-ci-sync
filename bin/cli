@@ -103,6 +103,6 @@ function clbk( error ) {
 		process.stderr.write( error.message+'\n', 'utf8' );
 		return process.exit( 1 );
 	}
-	process.stdout.write( 'Success\n', 'utf8' );
+	process.stderr.write( 'Success\n', 'utf8' );
 	process.exit( 0 );
 }
