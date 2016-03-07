@@ -1,0 +1,11 @@
+
+Usage: travissync [options]
+
+Options:
+
+  -h,  --help               Print this message.
+  -V,  --version            Print the package version.
+       --hostname host      Hostname. Default: api.travis-ci.org.
+       --token token        Travis CI access token.
+
+
