@@ -34,6 +34,15 @@ tape( 'function throws an error if provided an invalid option', function test( t
 	}
 });
 
+tape( 'function throws if not provided a token', function test( t ) {
+	t.throws( foo, Error, 'requires a token' );
+	t.end();
+
+	function foo() {
+		factory( {'hostname':'api.travis-ci.org'}, noop );
+	}
+});
+
 tape( 'function throws if provided a callback argument which is not a function', function test( t ) {
 	var values;
 	var opts;

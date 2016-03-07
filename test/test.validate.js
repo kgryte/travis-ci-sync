@@ -61,6 +61,12 @@ tape( 'if provided a `token` option which is not a primitive string, the functio
 	t.end();
 });
 
+tape( 'a `token` option is required', function test( t ) {
+	var err = validate( {}, {} );
+	t.ok( err instanceof TypeError, 'returns type error if not provided a `token`' );
+	t.end();
+});
+
 tape( 'if provided a `hostname` option which is not a primitive string, the function returns a type error', function test( t ) {
 	var values;
 	var err;
@@ -79,6 +85,7 @@ tape( 'if provided a `hostname` option which is not a primitive string, the func
 
 	for ( i = 0; i < values.length; i++ ) {
 		err = validate( {}, {
+			'token': 'abcdefg',
 			'hostname': values[i]
 		});
 		t.ok( err instanceof TypeError, 'returns type error when provided ' + values[i] );
@@ -104,6 +111,7 @@ tape( 'if provided a `useragent` option which is not a primitive string, the fun
 
 	for ( i = 0; i < values.length; i++ ) {
 		err = validate( {}, {
+			'token': 'abcdefg',
 			'useragent': values[i]
 		});
 		t.ok( err instanceof TypeError, 'returns type error when provided ' + values[i] );
@@ -135,6 +143,7 @@ tape( 'the function will ignore unrecognized options', function test( t ) {
 	var err;
 
 	err = validate( {}, {
+		'token': 'abcdefg',
 		'beep': 'boop',
 		'a': 5,
 		'b': null,
