@@ -93,6 +93,7 @@ The factory method accepts the same `options` as [`sync()`](#sync).
 ## Notes
 
 *	If the module encounters an application-level `error` while __initially__ querying an endpoint (e.g., no network connection, malformed request, etc), that `error` is returned immediately to the provided `callback`.
+*   If possible, avoid repeatedly triggering a [sync][travis-sync] in close succession, as each [sync][travis-sync] may entail multiple Github API requests, thus affecting a user's Github [rate limit][github-user-rate-limit].
 
 
 ---
@@ -260,6 +261,8 @@ Copyright &copy; 2016. Athan Reines.
 [tape]: https://github.com/substack/tape
 [istanbul]: https://github.com/gotwarlost/istanbul
 [testling]: https://ci.testling.com
+
+[github-user-rate-limit]: https://github.com/kgryte/github-user-rate-limit
 
 [travis-api]: https://docs.travis-ci.com/api
 [travis-sync]: https://docs.travis-ci.com/api?http#users
